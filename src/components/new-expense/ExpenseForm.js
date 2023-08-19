@@ -3,18 +3,17 @@ import { useState } from 'react'
 
 function ExpenseForm() {
   const [newTitle, setNewTitle] = useState('');
-  const titleChangedHandler = (event) => {
-    setNewTitle(event.target.value)
-  }
-  
   const [newAmount, setNewAmount] = useState('');
-  const amountChangedHandler = (event) => {
-    setNewAmount(event.target.value)
-  }
-  
   const [newDate, setNewDate] = useState('');
-  const dateChangedHandler = (event) => {
-    setNewDate(event.target.value)
+
+  const inputChangeHandler = (identifier, value) => {
+    if (identifier === "title") {
+      setNewTitle(value)
+    } else if (identifier === "amount") {
+      setNewAmount(value)
+    } else if (identifier === "date") {
+      setNewDate(value)
+    }
   }
 
   return (
@@ -22,15 +21,15 @@ function ExpenseForm() {
       <div className="new-expense__controls">
         <div className="new-expense__control">
           <label>Title</label>
-          <input type="text" onChange={titleChangedHandler} />
+          <input type="text" onChange={(event) => inputChangeHandler("title", event.target.value)} />
         </div>
         <div className="new-expense__control">
           <label>Amount</label>
-          <input type="number" min="0.01" step="0.01" onChange={amountChangedHandler} />
+          <input type="number" min="0.01" step="0.01" onChange={(event) => inputChangeHandler("amount", event.target.value)} />
         </div>
         <div className="new-expense__control">
-          <label>Title</label>
-          <input type="date" min="2019-01-01" max="2022-12-31" onChange={dateChangedHandler} />
+          <label>Date</label>
+          <input type="date" min="2019-01-01" max="2022-12-31" onChange={(event) => inputChangeHandler("date", event.target.value)} />
         </div>
       </div>
 
