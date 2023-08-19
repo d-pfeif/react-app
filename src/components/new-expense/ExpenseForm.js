@@ -25,6 +25,10 @@ function ExpenseForm() {
       date: new Date(newDate)
     }
     console.log(expense);
+
+    inputChangeHandler('title', '')
+    inputChangeHandler('amount', '')
+    inputChangeHandler('date', '')
   }
 
   return (
@@ -32,15 +36,15 @@ function ExpenseForm() {
       <div className="new-expense__controls">
         <div className="new-expense__control">
           <label>Title</label>
-          <input type="text" onChange={(event) => inputChangeHandler("title", event.target.value)} />
+          <input type="text" value={newTitle} onChange={(event) => inputChangeHandler("title", event.target.value)} />
         </div>
         <div className="new-expense__control">
           <label>Amount</label>
-          <input type="number" min="0.01" step="0.01" onChange={(event) => inputChangeHandler("amount", event.target.value)} />
+          <input type="number" min="0.01" step="0.01" value={newAmount} onChange={(event) => inputChangeHandler("amount", event.target.value)} />
         </div>
         <div className="new-expense__control">
           <label>Date</label>
-          <input type="date" min="2019-01-01" max="2022-12-31" onChange={(event) => inputChangeHandler("date", event.target.value)} />
+          <input type="date" min="2019-01-01" max="2022-12-31" value={newDate} onChange={(event) => inputChangeHandler("date", event.target.value)} />
         </div>
       </div>
 
