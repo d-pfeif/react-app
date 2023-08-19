@@ -17,7 +17,7 @@ function Expenses(props) {
   return (
     <Card className="expenses">
       <ExpenseFilter filterYear={filterYear} onFilterYearChange={filterYearHandler} />
-      { expenseItemList }
+      { expenseItemList.length === 0 ? <p className="expenses__no-data">There are no expenses for this date.</p> : expenseItemList }
     </Card>
   );
 }
