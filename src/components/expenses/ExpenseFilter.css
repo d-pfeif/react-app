@@ -1,0 +1,8 @@
+.expense-filter {
+  color: white;
+
+  .expense-filter__select {
+    margin-left: 24px;
+    width: 100px;
+  }
+}
